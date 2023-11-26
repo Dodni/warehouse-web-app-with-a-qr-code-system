@@ -7,7 +7,8 @@ $routes = [
     '/qr_kod_app/' => 'home_controller.php',
     '/qr_kod_app/home' => 'home_controller.php',
     '/qr_kod_app/about' => 'about_controller.php',
-    '/qr_kod_app/contact' => 'contact_controller.php'
+    '/qr_kod_app/contact' => 'contact_controller.php',
+    '/qr_kod_app/login' => 'login_controller.php'
 ];
 
 // Ellenőrizze, hogy létezik-e a kívánt útvonal
