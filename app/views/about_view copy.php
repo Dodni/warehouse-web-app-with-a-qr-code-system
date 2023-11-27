@@ -16,4 +16,3 @@
 </body>
 <?php include 'footer_view.php'; ?>
 </html>
-

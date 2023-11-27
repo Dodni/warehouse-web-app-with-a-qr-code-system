@@ -1,7 +1,4 @@
 <?php
-// Elérési út beállítása a controllerekhez
-$controllerPath = 'app/controllers/';
-
 // Könyvtár az útvonalakhoz és vezérlőkhöz
 $routes = [
     '/qr_kod_app/' => 'home_controller.php',
@@ -15,24 +12,36 @@ $routes = [
     '/qr_kod_app/login?data=jelentkezzen-be-elobb' => 'login_controller.php',
     '/qr_kod_app/logout' => 'logout_controller.php',
     '/qr_kod_app/raktarkeszlet' => 'raktarkeszlet_controller.php',
+    '/qr_kod_app/egyke_termek' => 'egyketermek_controller.php',
     '/qr_kod_app/raktarkeszlet?data=sikeres' => 'raktarkeszlet_controller.php',
     '/qr_kod_app/admin' => 'admin_controller.php',
+    '/qr_kod_app/TermekInfoAPIController/getTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPIController/getTermekek' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPIController/postTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPIController/putTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPIController/deleteTermek/(\d+)' => 'TermekInfoAPI_controller.php',
 ];
-// Ellenőrizze, hogy létezik-e a kívánt útvonal
+// Az aktuális kérés URL-je
 $requestURI = $_SERVER['REQUEST_URI'];
 
-if (array_key_exists($requestURI, $routes)) {
-    $controllerFile = $controllerPath . $routes[$requestURI];
+foreach ($routes as $route => $controller) {
+    if (preg_match('%^' . $route . '$%', $requestURI, $matches)) {
+        $controllerFile = 'app/controllers/' . $controller;
 
-    // Ellenőrizzük, hogy a fájl létezik-e
-    if (file_exists($controllerFile)) {
-        include $controllerFile;
-    } else {
-        echo "A megadott vezérlőfájl nem található.";
+        // Ha a fájl létezik és a kérés megfelel a mintának
+        if (file_exists($controllerFile)) {
+            include $controllerFile;
+            exit();
+        } else {
+            echo "A megadott vezérlőfájl nem található.";
+            exit();
+        }
     }
-} else {
-    // Hibakezelés: 404 oldal
-    http_response_code(404);
-    echo '404 - Az oldal nem található';
 }
+
+// Ha nincs meghatározott route, kezeljük a hibát
+http_response_code(404);
+echo '404 - Az oldal nem található';
+
 ?>
+

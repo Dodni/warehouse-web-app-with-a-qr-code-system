@@ -5,7 +5,7 @@ class UserModel {
     public function getUsers() {
         Database::connect();
         $users = [];
-        $result = Database::$connection->query("SELECT * FROM felhasznalok");
+        $result = Database::$connection->query("SELECT * FROM termekek");
         while ($row = $result->fetch_assoc()) {
             $users[] = $row;
         }
