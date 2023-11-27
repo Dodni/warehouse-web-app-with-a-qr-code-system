@@ -2,24 +2,41 @@
 
 <?php
 class UserModel {
-    // Ide jönnek az adatbáziskapcsolathoz szükséges részek
 
-    public function getUserByUsername($username) {
-        // Itt lehetőség van egy adatbáziskérésre, hogy lekérdezzük a felhasználó adatait
-        // Ez csak egy példa, valódi adatbázis-kapcsolat szükséges
-        $users = [
-            ['id' => 1, 'username' => 'valós_felhasználónév', 'password' => '$2y$10$MwU4OrI'],
-            // További felhasználók adatai
-        ];
 
-        // Keresd meg a felhasználót a felhasználónév alapján a valós adatokban
-        foreach ($users as $user) {
-            if ($user['username'] === $username) {
-                return $user;
-            }
+
+    public function getUsers() {
+        Database::connect();
+        $users = [];
+        $result = Database::$connection->query("SELECT * FROM felhasznalok");
+        while ($row = $result->fetch_assoc()) {
+            $users[] = $row;
         }
+        return $users;
 
-        return null; // Ha nem található a felhasználó
+        /*
+        Meghivas:
+
+        $userModel = new UserModel();
+        $users = $userModel->getUsers();
+        var_dump($users);
+
+         */
     }
+
+    function getPassword($username) {
+        Database::connect();
+        $password = [] ;
+        //$query = "SELECT felhasznalo_jelszo FROM felhasznalok WHERE felhasznalo_nev = '$username'";
+        $result = Database::$connection->query("SELECT * FROM felhasznalok WHERE felhasznalo_nev = '$username'");
+        
+        while ($row = $result->fetch_assoc()) {
+            $password[] = $row;
+        }
+        //var_dump($password);
+        
+        return $password;
+    }
+    
 }
 ?>

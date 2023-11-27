@@ -3,6 +3,7 @@
 // Elérési út beállítása a controllerekhez
 $controllerPath = 'app/controllers/';
 include 'system/config.php';
+include 'system/database.php';
 include 'route.php';
 
 // Error reporting bekapcsolása
