@@ -6,11 +6,15 @@ $controllerPath = 'app/controllers/';
 $routes = [
     '/qr_kod_app/' => 'home_controller.php',
     '/qr_kod_app/home' => 'home_controller.php',
+    '/qr_kod_app/home?data=mar-be-vagy-jelentkezve' => 'home_controller.php',
     '/qr_kod_app/about' => 'about_controller.php',
     '/qr_kod_app/contact' => 'contact_controller.php',
-    '/qr_kod_app/login' => 'login_controller.php'
+    '/qr_kod_app/login' => 'login_controller.php',
+    '/qr_kod_app/login?data=jelentkezzen-be-elobb' => 'login_controller.php',
+    '/qr_kod_app/logout' => 'logout_controller.php',
+    '/qr_kod_app/raktarkeszlet' => 'raktarkeszlet_controller.php',
+    '/qr_kod_app/raktarkeszlet?data=sikeres' => 'raktarkeszlet_controller.php'
 ];
-
 // Ellenőrizze, hogy létezik-e a kívánt útvonal
 $requestURI = $_SERVER['REQUEST_URI'];
 
