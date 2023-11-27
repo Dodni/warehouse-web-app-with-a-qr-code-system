@@ -5,7 +5,6 @@ $controllerPath = 'app/controllers/';
 // Könyvtár az útvonalakhoz és vezérlőkhöz
 $routes = [
     '/qr_kod_app/' => 'home_controller.php',
-    '/qr_kod_app/oldal' => 'oldal_controller.php',
     '/qr_kod_app/home' => 'home_controller.php',
     '/qr_kod_app/home?data=mar-be-vagy-jelentkezve' => 'home_controller.php',
     '/qr_kod_app/about' => 'about_controller.php',

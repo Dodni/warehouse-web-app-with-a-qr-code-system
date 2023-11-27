@@ -11,7 +11,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', 'php_errors.log'); // Elérési útvonal a naplófájlhoz
-
 // Ellenőrizze, hogy létezik-e a controller fájl és include-olja azt
 function includeControllers($controllerPath) {
     // Ellenőrizzük az összes fájlt a megadott könyvtárban
@@ -21,17 +20,4 @@ function includeControllers($controllerPath) {
         include $controller;
     }
 }
-
-// Include all models from app/models directory
-function includeModels($modelsPath) {
-    // Ellenőrizzük az összes fájlt a megadott könyvtárban
-    $models = glob($modelsPath . '*_model.php');
-    
-    foreach ($models as $model) {
-        include $model;
-    }
-}
-
-// App models include
-includeModels('app/models/');
 ?>

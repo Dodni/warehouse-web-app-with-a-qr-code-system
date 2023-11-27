@@ -17,11 +17,22 @@
         echo "<h3>Mar be van jelentkezve!</h3>";
     }
     ?>
-
-
     <h1>Üdvözöljük a világot!</h1>
     <p>Ez a világ legjobb nézete!</p>
-
+    <br>
+    <a href="login">Login</a>
+    <br>
+    <a href="raktarkeszlet">Raktarkeszlet</a>
+    <br>
+    <a href="login">Login</a>
+    <br>
+    <a href="logout">Logout</a>
+    <br>
+    <a href="login">Login</a>
+    <br>
+    <a href="login">Login</a>
+    <br>
+    <a href="login">Login</a>
 </body>
 <?php include 'footer_view.php'; ?>
 </html>

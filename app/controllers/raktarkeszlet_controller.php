@@ -10,7 +10,7 @@ class RaktarkeszletController {
         ];
         $viewPath = 'app/views/raktarkeszlet_view.php';
         session_start();
-        #var_dump($_SESSION);
+        var_dump($_SESSION);
         // Ellenőrizzük, hogy a 'data' paraméter be van-e állítva
         if ($_SESSION['loggedin'] == true) {
 

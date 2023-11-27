@@ -2,6 +2,9 @@
 
 <?php
 class UserModel {
+
+
+
     public function getUsers() {
         Database::connect();
         $users = [];

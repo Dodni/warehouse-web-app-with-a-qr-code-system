@@ -16,16 +16,11 @@ class HomeController {
             echo "A megadott nézetfájl nem található.";
         }
         
-        //$testModel = new TestModel();
+        $testModel = new TestModel();
         
-        //$testModel->connectToDatabase();
-
-
+        $testModel->connectToDatabase();
         
     }
-
-    
-
 }
 
 // Példányosítjuk a HomeController osztályt
