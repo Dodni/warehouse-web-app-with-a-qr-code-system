@@ -1,4 +1,4 @@
-<header><p>Ez itt a header</p></header>
+<header>
 <?php
     require_once "app/controllers/oldal_controller.php";
     $controller = new OldalController();
@@ -6,3 +6,4 @@
     #var_dump($menu);
     echo $menu;
 ?>
+</header>
