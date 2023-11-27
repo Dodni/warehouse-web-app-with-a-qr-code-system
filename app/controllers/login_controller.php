@@ -40,8 +40,9 @@ class LoginController {
         }
     }
 }
+
 session_start();
-var_dump($_SESSION);
+#var_dump($_SESSION);
 if ($_SESSION["loggedin"] == true) {
     $dataToSend = "mar-be-vagy-jelentkezve"; // Az adat, amit elküldesz
     $url = "/qr_kod_app/home?data=" . urlencode($dataToSend);
@@ -56,7 +57,7 @@ else {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $result = $loginController->authenticateUser($username, $password);
-        var_dump($result);
+        #var_dump($result);
         if ($result == true) {
             // Adat elküldése a raktarkeszlet oldalra
             session_start();
