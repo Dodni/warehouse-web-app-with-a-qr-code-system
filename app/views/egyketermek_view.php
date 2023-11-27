@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
-    <title>Kijelentkezve</title>
+    <title>Egyke Termék oldal</title>
 </head>
 <?php include 'header_view.php'; ?>
 <body>
     <div class="container">
-        <h1>Kijelentkezve</h1>
+        <h1>Egyke Termék oldal</h1>
     </div>
-    <br>
+
 </body>
 <?php include 'footer_view.php'; ?>
 </html>

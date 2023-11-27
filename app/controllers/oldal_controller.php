@@ -25,8 +25,9 @@ class OldalController {
     public function showMenu($userJog, $menu) {
         // Menüpontok gyűjtése a felhasználói jogosultság alapján
         $menuItems = [];
+        
         foreach ($menu as $menuItem) {
-            if ($userJog == 3 && $menuItem['oldal_jog'] <= 2 ) {
+            if ($userJog == 3 && $menuItem['oldal_jog'] <= 3) {
                 $menuItems[] = $menuItem; // Ha a felhasználó jogosultsága 3, minden menüpont hozzáadása
             } elseif ($userJog == 2 && $menuItem['oldal_jog'] <= 2) {
                 $menuItems[] = $menuItem; // Ha a felhasználó jogosultsága 2, csak 2-es és 1-es jogú menüpontok hozzáadása
@@ -35,6 +36,13 @@ class OldalController {
             }
         }
     
+        // Ha be van jelentkezve a felhasználó, szűrd ki a "Bejelentkezés" menüpontot
+        if ($_SESSION['loggedin'] == true) {
+            $menuItems = array_filter($menuItems, function ($item) {
+                return $item['oldal_nev'] !== 'Bejelentkezés';
+            });
+        }
+        
         // Navigációs menü összeállítása
         $navMenu = '<nav><ul>';
         foreach ($menuItems as $item) {
