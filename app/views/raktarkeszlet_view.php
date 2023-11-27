@@ -14,20 +14,7 @@
         <h1><?php echo $dataSend['title']; ?></h1>
     </div>
     <?php if ($_GET['data']=="sikeres") {echo "<h3>Sikeres bejelentkezes!</h3>";}?>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="raktarkeszlet">Raktárkészlet</a>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="logout">Logout</a>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="login">Login</a>
+
 </body>
 <?php include 'footer_view.php'; ?>
 </html>

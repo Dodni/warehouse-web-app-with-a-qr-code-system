@@ -9,7 +9,6 @@
     <div><h1><?php echo $data['title']; ?></h1></div>
     <div>
         <div>
-            <?php include 'header_view.php'; ?>
             <?php echo $data['sikertelen']; ?>
             <?php if ($_GET['data']=="jelentkezzen-be-elobb") {
                 echo "<h3>Jelentkezzen be elobb!</h3>";

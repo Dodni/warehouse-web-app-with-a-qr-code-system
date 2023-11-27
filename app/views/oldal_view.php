@@ -20,20 +20,7 @@
 
     <h1>MENU</h1>
     <p>Ez a világ legjobb nézete!</p>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="raktarkeszlet">Raktarkeszlet</a>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="logout">Logout</a>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="login">Login</a>
-    <br>
-    <a href="login">Login</a>
+
 </body>
 <?php include 'footer_view.php'; ?>
 </html>

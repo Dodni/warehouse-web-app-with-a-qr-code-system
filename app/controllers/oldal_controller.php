@@ -1,8 +1,9 @@
 <!-- menu_controller.php -->
 
 <?php
-include 'app/models/oldal_model.php';
-include 'app/models/user_model.php';
+require_once 'app/models/oldal_model.php';
+require_once 'app/models/user_model.php';
+
 class OldalController {
     public function showOldalPage() {
         
@@ -25,11 +26,11 @@ class OldalController {
         // Menüpontok gyűjtése a felhasználói jogosultság alapján
         $menuItems = [];
         foreach ($menu as $menuItem) {
-            if ($userJog == 3) {
+            if ($userJog == 3 && $menuItem['oldal_jog'] <= 2 ) {
                 $menuItems[] = $menuItem; // Ha a felhasználó jogosultsága 3, minden menüpont hozzáadása
             } elseif ($userJog == 2 && $menuItem['oldal_jog'] <= 2) {
                 $menuItems[] = $menuItem; // Ha a felhasználó jogosultsága 2, csak 2-es és 1-es jogú menüpontok hozzáadása
-            } elseif ($userJog == 1 && $menuItem['oldal_jog'] == 1) {
+            } elseif ($menuItem['oldal_jog'] == 1) {
                 $menuItems[] = $menuItem; // Ha a felhasználó jogosultsága 1, csak az 1-es jogú menüpontok hozzáadása
             }
         }
@@ -50,24 +51,20 @@ class OldalController {
         $userModel = new UserModel(); // Példányosítsd az UserModelt
         $user = $userModel->getPassword($_SESSION['username']); // Az adatbázisból lekérjük a felhasználót
         
-        #var_dump($user['0']['felhasznalo_jog']);
         
-        // Példányosítjuk a HomeController osztályt
         $controller = new OldalController();
-        
-        // Meghívjuk a showHomePage() metódust a HomeController-ből
-        #$controller->showOldalPage();
-        
         $oldalModel = new OldalModel();
-                
+        #var_dump($user['0']['felhasznalo_jog']);
         #var_dump($oldalModel->getOldalList());
         
         $menu = $controller->showMenu($user['0']['felhasznalo_jog'],$oldalModel->getOldalList());
-        //echo $menu;
+        #echo $menu;
         #var_dump($menu);
         return $menu;
     }
 }
-
+#$controller = new OldalController();
+#$controller->showOldalPage();
+#$controller->getMenu();
 
 ?>

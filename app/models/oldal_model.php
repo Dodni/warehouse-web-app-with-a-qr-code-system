@@ -1,4 +1,4 @@
-<!-- user_model.php -->
+<!-- oldal_model.php -->
 
 <?php
 class OldalModel {

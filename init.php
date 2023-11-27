@@ -6,6 +6,7 @@ include 'system/config.php';
 include 'system/database.php';
 include 'route.php';
 
+
 // Error reporting bekapcsolása
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -22,6 +23,7 @@ function includeControllers($controllerPath) {
     }
 }
 
+/*
 // Include all models from app/models directory
 function includeModels($modelsPath) {
     // Ellenőrizzük az összes fájlt a megadott könyvtárban
@@ -34,4 +36,5 @@ function includeModels($modelsPath) {
 
 // App models include
 includeModels('app/models/');
+*/
 ?>
