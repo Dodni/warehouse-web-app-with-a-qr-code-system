@@ -4,4 +4,4 @@
     $controller = new OldalController();
     $menu = $controller->getMenu();
     echo $menu;
-    ?>
+?>
