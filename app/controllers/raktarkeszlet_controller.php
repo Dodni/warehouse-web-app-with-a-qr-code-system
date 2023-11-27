@@ -5,17 +5,16 @@ class RaktarkeszletController {
     public function showRaktarkeszletPage() {
         $dataSend = [
             'title' => 'Raktarkészlet',
+            'sikeres'=> 'Sikeres',
             // ... egyéb változók
         ];
         $viewPath = 'app/views/raktarkeszlet_view.php';
         session_start();
+        var_dump($_SESSION);
         // Ellenőrizzük, hogy a 'data' paraméter be van-e állítva
-        if (isset($_GET['data']) == 'sikeres' and $_SESSION['loggedin'] == true) {
-            $receivedData = $_GET['data'];
+        if ($_SESSION['loggedin'] == true) {
 
-            $data = htmlspecialchars($receivedData); // Védelem XSS támadás ellen
-
-            if (file_exists($viewPath) and $data == "sikeres") {
+            if (file_exists($viewPath)) {
                 // Betöltjük és megjelenítjük a nézetet
                 include $viewPath;
             } else {
@@ -27,7 +26,7 @@ class RaktarkeszletController {
             $url = "/qr_kod_app/login?data=" . urlencode($dataToSend);
 
             // Átirányítás a megadott URL-re
-            header("Location: $url");
+            //header("Location: $url");
             exit;
         }
     }

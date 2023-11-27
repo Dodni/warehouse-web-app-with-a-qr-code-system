@@ -3,7 +3,9 @@
 <?php
 class LogoutController {
     public function showLogoutPage() {
+        session_start();
         $_SESSION['loggedin'] = false;
+        $_SESSION['username'] = null;
         $viewPath = 'app/views/logout_view.php';
         // Ellenőrizzük, hogy a fájl létezik-e
         if (file_exists($viewPath)) {

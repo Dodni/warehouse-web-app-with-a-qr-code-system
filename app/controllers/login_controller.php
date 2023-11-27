@@ -42,7 +42,14 @@ class LoginController {
 }
 session_start();
 var_dump($_SESSION);
-if ($_SESSION["loggedin"] != true) {
+if ($_SESSION["loggedin"] == true) {
+    $dataToSend = "mar-be-vagy-jelentkezve"; // Az adat, amit elküldesz
+    $url = "/qr_kod_app/home?data=" . urlencode($dataToSend);
+    // Átirányítás a megadott URL-re
+    header("Location: $url");
+    exit;
+}
+else {
     $loginController = new LoginController();
 
     if($_SERVER["REQUEST_METHOD"] == 'POST') {
@@ -53,7 +60,7 @@ if ($_SESSION["loggedin"] != true) {
         if ($result == true) {
             // Adat elküldése a raktarkeszlet oldalra
             session_start();
-
+            $dataToSend = "sikeres"; // Az adat, amit elküldesz
             // Felhasználó azonosítása és munkamenet beállítása
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
@@ -70,16 +77,7 @@ if ($_SESSION["loggedin"] != true) {
         }
     }    
 
-    if ($_SERVER["REQUEST_METHOD"]== "GET") {
-        $loginController->showLoginPage(true);
-    }
-}
-else {
-    $dataToSend = "mar-be-vagy-jelentkezve"; // Az adat, amit elküldesz
-    $url = "/qr_kod_app/home?data=" . urlencode($dataToSend);
-    // Átirányítás a megadott URL-re
-    header("Location: $url");
-    exit;
+    if ($_SERVER["REQUEST_METHOD"]== "GET") {$loginController->showLoginPage(true);}
 }
 
 ?>

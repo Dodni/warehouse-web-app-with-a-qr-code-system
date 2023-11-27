@@ -2,8 +2,8 @@
 
 <?php
 include 'app/models/test_model.php';
-class HomeController {
-    public function showHomePage() {
+class MenuController {
+    public function showMenu() {
         $viewPath = 'app/views/home_view.php';
         
         // Ellenőrizzük, hogy a fájl létezik-e
@@ -20,10 +20,6 @@ class HomeController {
         
     }
 }
-
-// Példányosítjuk a HomeController osztályt
-$controller = new HomeController();
-
-// Meghívjuk a showHomePage() metódust a HomeController-ből
-$controller->showHomePage();
+$controller = new MenuController();
+$controller->showMenu();
 ?>

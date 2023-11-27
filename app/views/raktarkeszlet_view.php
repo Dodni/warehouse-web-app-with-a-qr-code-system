@@ -13,6 +13,7 @@
     <div class="container">
         <h1><?php echo $dataSend['title']; ?></h1>
     </div>
+    <?php if ($_GET['data']=="sikeres") {echo "<h3>Sikeres bejelentkezes!</h3>";}?>
     <br>
     <a href="login">Login</a>
     <br>
@@ -20,7 +21,7 @@
     <br>
     <a href="login">Login</a>
     <br>
-    <a href="login">Login</a>
+    <a href="logout">Logout</a>
     <br>
     <a href="login">Login</a>
     <br>

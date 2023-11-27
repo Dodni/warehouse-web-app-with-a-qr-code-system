@@ -11,7 +11,7 @@
         <div>
             <?php include 'header_view.php'; ?>
             <?php echo $data['sikertelen']; ?>
-            <?php if ($_GET['data']="jelentkezzen-be-elobb") {
+            <?php if ($_GET['data']=="jelentkezzen-be-elobb") {
                 echo "<h3>Jelentkezzen be elobb!</h3>";
             }?>
             <form action="login" method="post"> 
