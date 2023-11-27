@@ -44,10 +44,8 @@ class LoginController {
 session_start();
 #var_dump($_SESSION);
 if ($_SESSION["loggedin"] == true) {
-    $dataToSend = "mar-be-vagy-jelentkezve"; // Az adat, amit elküldesz
-    $url = "/qr_kod_app/home?data=" . urlencode($dataToSend);
-    // Átirányítás a megadott URL-re
-    header("Location: $url");
+    $_SESSION["dataToSend"] = "mar-be-vagy-jelentkezve"; // Adat tárolása SESSION változóban
+    header("Location: /qr_kod_app/home"); // Átirányítás a home oldalra
     exit;
 }
 else {
@@ -61,13 +59,13 @@ else {
         if ($result == true) {
             // Adat elküldése a raktarkeszlet oldalra
             session_start();
-            $dataToSend = "sikeres"; // Az adat, amit elküldesz
             // Felhasználó azonosítása és munkamenet beállítása
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
 
+            $_SESSION["dataToSend"] = "sikeres"; // Adat tárolása SESSION változóban
             // URL, amire szeretnéd küldeni az adatot
-            $url = "/qr_kod_app/raktarkeszlet?data=" . urlencode($dataToSend);
+            $url = "/qr_kod_app/raktarkeszlet";
 
             // Átirányítás a megadott URL-re
             header("Location: $url");

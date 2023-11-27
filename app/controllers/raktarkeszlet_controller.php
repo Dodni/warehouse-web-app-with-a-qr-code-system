@@ -26,7 +26,7 @@ class RaktarkeszletController {
             $url = "/qr_kod_app/login?data=" . urlencode($dataToSend);
 
             // Átirányítás a megadott URL-re
-            //header("Location: $url");
+            header("Location: $url");
             exit;
         }
     }
