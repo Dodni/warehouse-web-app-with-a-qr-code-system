@@ -1,2 +1,2 @@
 <!-- footer.php -->
-<footer><p>Ez itt a footer</p></footer>
+<footer><p>Fehér Donát szakdolgozat</p></footer>
