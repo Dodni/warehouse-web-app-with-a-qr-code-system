@@ -11,6 +11,7 @@ $routes = [
     'qr_kod_app/login?data=jelentkezzen-be-elobb'=> 'login_controller.php',
     '/qr_kod_app/logout' => 'logout_controller.php',
     '/qr_kod_app/raktarkeszlet' => 'raktarkeszlet_controller.php',
+    '/qr_kod_app/raktarkeszlet_csoportositott_termek' => 'raktarkeszlet_controller.php',
     '/qr_kod_app/egyke_termek' => 'egyketermek_controller.php',
     '/qr_kod_app/admin' => 'admin_controller.php',
     '/qr_kod_app/TermekInfoAPI/getTermek/(\d+)' => 'TermekInfoAPI_controller.php',
