@@ -7,8 +7,8 @@ class TermekInfoAPIController {
         $model = new TermekInfoAPIModel(); // Modell példányosítása
         $termekList = $model->getTermekekModel(); // A modell getTermekekModel függvényének meghívása
 
-        //var_dump($termekList);
-        echo $termekList;
+        #var_dump($termekList);
+        //echo $termekList;
         return $termekList;
     }
     
@@ -17,7 +17,7 @@ class TermekInfoAPIController {
         $termekList = $model->getTermekModel($termekId); // A modell getTermekekModel függvényének meghívása
 
         //var_dump($termekList);
-        echo $termekList;
+        #echo $termekList;
         return $termekList;
     }
     
@@ -91,23 +91,23 @@ class TermekInfoAPIController {
 $requestUri = $_SERVER['REQUEST_URI'];
 $controller = new TermekInfoAPIController();
 
-if (preg_match('%/qr_kod_app/TermekInfoAPIController/getTermek/(\d+)%', $requestUri, $matches)) {
+if (preg_match('%/qr_kod_app/TermekInfoAPI/getTermek/(\d+)%', $requestUri, $matches)) {
     $termekId = $matches[1];
     $controller->getTermek($termekId);
 }
-elseif (preg_match('%/qr_kod_app/TermekInfoAPIController/postTermek/(\d+)%', $requestUri, $matches)) {
+elseif (preg_match('%/qr_kod_app/TermekInfoAPI/postTermek/(\d+)%', $requestUri, $matches)) {
     $termekId = $matches[1];
     $controller->postTermek($termekId);
 } 
-elseif (preg_match('%/qr_kod_app/TermekInfoAPIController/putTermek/(\d+)%', $requestUri, $matches)) {
+elseif (preg_match('%/qr_kod_app/TermekInfoAPI/putTermek/(\d+)%', $requestUri, $matches)) {
     $termekId = $matches[1];
     $controller->putTermek($termekId);
 } 
-elseif (preg_match('%/qr_kod_app/TermekInfoAPIController/deleteTermek/(\d+)%', $requestUri, $matches)) {
+elseif (preg_match('%/qr_kod_app/TermekInfoAPI/deleteTermek/(\d+)%', $requestUri, $matches)) {
     $termekId = $matches[1];
     $controller->deleteTermek($termekId);
 }
-elseif ($requestUri == '/qr_kod_app/TermekInfoAPIController/getTermekek') {
+elseif ($requestUri == '/qr_kod_app/TermekInfoAPI/getTermekek') {
     $controller->getTermekek();
 }
 ?>
