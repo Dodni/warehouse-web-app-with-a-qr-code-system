@@ -8,15 +8,16 @@ $routes = [
     '/qr_kod_app/qr_kod' => 'qrkod_controller.php',
     '/qr_kod_app/contact' => 'contact_controller.php',
     '/qr_kod_app/login' => 'login_controller.php',
+    'qr_kod_app/login?data=jelentkezzen-be-elobb'=> 'login_controller.php',
     '/qr_kod_app/logout' => 'logout_controller.php',
     '/qr_kod_app/raktarkeszlet' => 'raktarkeszlet_controller.php',
     '/qr_kod_app/egyke_termek' => 'egyketermek_controller.php',
     '/qr_kod_app/admin' => 'admin_controller.php',
-    '/qr_kod_app/TermekInfoAPIController/getTermek/(\d+)' => 'TermekInfoAPI_controller.php',
-    '/qr_kod_app/TermekInfoAPIController/getTermekek' => 'TermekInfoAPI_controller.php',
-    '/qr_kod_app/TermekInfoAPIController/postTermek/(\d+)' => 'TermekInfoAPI_controller.php',
-    '/qr_kod_app/TermekInfoAPIController/putTermek/(\d+)' => 'TermekInfoAPI_controller.php',
-    '/qr_kod_app/TermekInfoAPIController/deleteTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPI/getTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPI/getTermekek' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPI/postTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPI/putTermek/(\d+)' => 'TermekInfoAPI_controller.php',
+    '/qr_kod_app/TermekInfoAPI/deleteTermek/(\d+)' => 'TermekInfoAPI_controller.php',
 ];
 // Az aktuális kérés URL-je
 $requestURI = $_SERVER['REQUEST_URI'];
@@ -38,7 +39,7 @@ foreach ($routes as $route => $controller) {
 
 // Ha nincs meghatározott route, kezeljük a hibát
 http_response_code(404);
-echo '404 - Az oldal nem található';
+include 'app/views/error_view.php';
 
 ?>
 
