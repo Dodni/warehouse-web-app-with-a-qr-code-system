@@ -13,15 +13,13 @@
 <body>
     <div class="container">
         <h1>QR kód</h1>
-    </div>
- 
 
-<label for="user-input">Enter QR code data: </label>
-<input type="text" id="user-input">
-<button id="btn">Generate QR code!</button>
-<div id="qrcode-container"></div>
-<a id="download-link" style="display: none;">Download QR code</a>
-
+        <label for="user-input">Enter QR code data: </label>
+        <input type="text" id="user-input">
+        <button id="btn">Generate QR code!</button>
+        <div id="qrcode-container"></div>
+        <a id="download-link" style="display: none;">Download QR code</a>
+</div>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <script type="text/javascript">

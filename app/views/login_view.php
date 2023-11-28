@@ -2,13 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="public/img/favicon.png">
+    <link rel="stylesheet" href="public/css/style.css">
     <title><?php echo $data['title']; ?></title>
 </head>
 <?php include 'header_view.php'; ?>
 <body>
     <div><h1><?php echo $data['title']; ?></h1></div>
-    <div>
-        <div>
+    <div class="container">
+        <div class="container">
             <?php echo $data['sikertelen']; ?>
             <?php if ($_GET['data']=="jelentkezzen-be-elobb") {
                 echo "<h3>Jelentkezzen be elobb!</h3>";
