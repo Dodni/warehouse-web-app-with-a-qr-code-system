@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
+    <script type="text/javascript" src="app/javascript/menu.js"></script>
     <title>Főoldal</title>
 </head>
 <?php include 'header_view.php'; ?>

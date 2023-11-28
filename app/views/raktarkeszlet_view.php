@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
+    <script type="text/javascript" src="app/javascript/menu.js"></script>
     <title><?php echo $dataSend['title']; ?></title>
 </head>
 <?php include 'header_view.php'; ?>
@@ -15,6 +16,7 @@
     // Példa adatok tömbje (legfeljebb 25 sor)
     session_start();
     $termekAdatok = $_SESSION["datasend"];
+    #var_dump($termekAdatok);
     $oszlopNevek = ['Termék teljes neve', 'EWC kód', 'Utolsó Dátum', 'Darabszám', 'Összes súly', 'Kiválasztás'];
     ?>
     <div class="container">
@@ -34,7 +36,7 @@
                         <tr>
                             <?php foreach ($termek as $key => $value) : ?>
                                 <?php if ($key === 'termek_nev') : ?>
-                                    <td><a href="#"><?= $value ?></a></td>
+                                    <td><a href="/qr_kod_app/raktarkeszlet_csoportositott_termek?ewc_kod=<?= $termek['termek_ewc_kod'] ?>"><?= $value ?></a></td>
                                 <?php else : ?>
                                     <td><?= $value ?></td>
                                 <?php endif; ?>
