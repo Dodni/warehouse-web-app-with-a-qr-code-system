@@ -1,48 +1,150 @@
-body{
-    padding: 0;
+/* Alapértelmezések */
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #333;
-}    
+}
+
+/* Fejléc */
 header {
-    text-align:center;
-    padding: 20px 0 10px 0;
+    text-align: center;
+    padding: 20px 0;
     background-color: #f5f5f5;
     border-bottom: 1px solid #e5e5e5;
 }
-main {
-    min-height: 600px;
-    margin: 30px 0;
+
+/* Menü */
+nav ul {
+    list-style: none;
+    padding: 0;
 }
-.home {
-    margin-top: 70px;
-    text-align:center;
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
 }
-.home .title {
-    margin-top: 30px;
-    color: #b31827;
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
 }
-.error {
-    margin-top: 70px;
-    text-align:center;
-}
-.error img {
-    height: 200px;
-    max-width: 100%;
-}
-.error .title {
-    margin-top: 30px;
-    color: #b31827;
-}
-footer {
-    background-color: #f5f5f5;
-    border-top: 1px solid #e5e5e5;
-    padding: 20px 0 15px 0;
-    font-size: .9em;
+
+/* Tartalom */
+h1 {
     text-align: center;
 }
-footer a {
-    color: #000;
-    text-decoration: none;
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+a {
+    margin-bottom: 10px;
+}
+
+/* Lábléc */
+footer {
+    position: fixed; /* Állandó pozíció */
+    bottom: 0; /* Az oldal aljára igazítás */
+    width: 100%; /* Teljes szélesség */
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Mobilnézet - Hamburger menü */
+.menu-toggle {
+    display: none; /* Alapértelmezett rejtés */
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: none; /* Alapértelmezett rejtés */
+    text-align: center;
+}
+
+/* Media query a mobil nézethez */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Megjelenítés kisebb képernyőknél */
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        padding: auto;
+    }
+
+    .nav-menu {
+        display: none; /* Alapértelmezett rejtés */
+        width: 100%;
+        background-color: #f5f5f5;
+        padding: 20px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .nav-menu ul {
+        padding: 0;
+    }
+
+    .nav-menu li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2em;
+    }
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .nav-menu.show-menu {
+        display: block;
+    }
+}
+
+/* Egyéb stílusok és kiegészítések */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Teljes ablakmagasság */
+    margin-top: 20px; /* Új: margin a header és a container között */
+}
+
+th, td {
+    border: 1px solid #000; /* Példa keret beállítása */
+    padding: 8px; /* Példa belső térköz beállítása */
+    text-align: center; /* Tartalom középre igazítása */
+}
+
+/* Nagyobb képernyőkön a vízszintes menü megjelenítése */
+@media screen and (min-width: 769px) {
+    .nav-menu {
+        display: block;
+        text-align: center;
+    }
+
+    .nav-menu ul {
+        display: inline-block;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        display: inline-block;
+        margin-right: 20px;
+    }
 }
