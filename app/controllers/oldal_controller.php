@@ -44,7 +44,7 @@ class OldalController {
         }
         
         // Navigációs menü összeállítása
-        $navMenu = '<nav><ul>';
+        $navMenu = '<nav class="nav-menu"><ul>';
         foreach ($menuItems as $item) {
             $navMenu .= '<li><a href="' . $item['oldal_url'] . '">' . $item['oldal_nev'] . '</a></li>';
         }
