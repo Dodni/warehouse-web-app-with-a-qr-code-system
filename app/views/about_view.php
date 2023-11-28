@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
-    <title>Rólunk</title>
+    <script type="text/javascript" src="app/javascript/menu.js"></script>
+    <title>Raktárkészlet - Új termék hozzáadása</title>
 </head>
 <?php include 'header_view.php'; ?>
 <body>
     <div class="container">
-        <h1>Rólunk</h1>
+        <h1>Raktárkészlet</h1>
+        <h3>Új termék hozzáadása</h3>
     </div>
 </body>
 <?php include 'footer_view.php'; ?>
