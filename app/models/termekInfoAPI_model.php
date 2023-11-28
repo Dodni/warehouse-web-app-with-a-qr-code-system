@@ -65,7 +65,7 @@ class TermekInfoAPIModel {
         $query = "DELETE FROM `termekek` WHERE `termek_id` = $termekId";
         $result = Database::$connection->query($query);
 
-        var_dump($result);
+        #var_dump($result);
         return $result;
     }
 }
