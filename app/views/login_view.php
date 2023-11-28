@@ -20,11 +20,12 @@
             }?>
             <form action="login" method="post"> 
             <input type="text" id="username" name="username" placeholder="Felhasználónév"><br>
-
+            <br>
             <input type="password" id="password" name="password" placeholder="Jelszó"><br><br>
 
             <input type="submit" value="bejelentkezes">
             </form>
+            <br><br>
             <a href="elfelejtett_jelszo.js">Elfelejtett jelszó</a>
         </div>
     </div>
