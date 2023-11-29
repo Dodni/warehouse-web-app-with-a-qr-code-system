@@ -10,10 +10,12 @@ class LogoutController {
         // Ellenőrizzük, hogy a fájl létezik-e
         if (file_exists($viewPath)) {
             // Betöltjük és megjelenítjük a nézetet
+            session_destroy();
             include $viewPath;
         } else {
             echo "A megadott nézetfájl nem található.";
         }
+        session_destroy();
         
     }
 }
