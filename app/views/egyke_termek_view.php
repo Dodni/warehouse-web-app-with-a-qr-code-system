@@ -1,4 +1,4 @@
-<!-- home_view.php -->
+<!-- egyke_termek_view.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,37 +12,33 @@
 </head>
 <?php include 'header_view.php'; ?>
 <body>
+    <div><h1>Egyke termék oldal</h1></div>
     <div class="container">
-        <h1>Egyke Termék oldal</h1>
-        <!-- ez kell -->
-        <div id="qrcode-container"></div>
-        <br>
-        <button id="download-btn">Download QR code</button>
+        <?php 
+            session_start();
+            #var_dump($_SESSION['dataSenden']);
+            if ($_SESSION['dataSenden'] != null) {
+                foreach ($_SESSION['dataSenden']  as $item) {
+                    echo "<div class='product'>";
+                    foreach ($item as $key => $value) {
+                        if ($key === "termek_logisztikara_kuldve" && $value === "0") {
+                            echo "<b>$key:</b> Nem<br>";
+                        } else {
+                            echo "<b>$key:</b> $value<br>";
+                        }
+                    }
+                    echo "</div><br>";
+                }
+                
+            }
+        ?>
     </div>
-
-
-<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-
-<script type="text/javascript">
-    const QRElement = document.getElementById("qrcode-container");
-    const qrCode = new QRCode(QRElement, "The Eagle Has Landed");
-
-    document.getElementById('download-btn').addEventListener('click', function() {
-        const qrCodeImage = QRElement.querySelector('img');
-        const tempCanvas = document.createElement('canvas');
-        const tempContext = tempCanvas.getContext('2d');
-
-        tempCanvas.width = qrCodeImage.width;
-        tempCanvas.height = qrCodeImage.height;
-        tempContext.drawImage(qrCodeImage, 0, 0);
-
-        const dataURL = tempCanvas.toDataURL('image/png');
-        const downloadLink = document.createElement('a');
-        downloadLink.href = dataURL;
-        downloadLink.download = 'qrcode.png';
-        downloadLink.click();
-    });
-</script>   
+    <div id="qrcode-container"></div>
+    <script type="text/javascript">
+        var termekId = <?php echo json_encode($_SESSION["termek_id"]); ?>;
+        new QRCode(document.getElementById("qrcode-container"), 'http://localhost/qr_kod_app/egyke_termek/' + termekId);
+    </script>
+    <?php $_SESSION['dataSenden']=null;?>
 </body>
 <?php include 'footer_view.php'; ?>
 </html>

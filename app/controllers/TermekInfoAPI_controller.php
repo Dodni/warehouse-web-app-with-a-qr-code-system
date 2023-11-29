@@ -17,21 +17,21 @@ class TermekInfoAPIController {
         $termekList = $model->getTermekModel($termekId); // A modell getTermekekModel függvényének meghívása
 
         //var_dump($termekList);
-        #echo $termekList;
-        return $termekList;
+        echo $termekList;
+        #return $termekList;
     }
     
     function postTermek($termekData) { 
         $model = new TermekInfoAPIModel(); // Modell példányosítása
         $termekList = $model->postTermekModel($termekData); // A modell getTermekekModel függvényének meghívása
-        var_dump($termekList);
+        #var_dump($termekList);
         if ($termekList == true)
         {
-            echo "Sikeres post.";
+            echo "Sikeres post a TermekInfoAPI-val.";
         } else {
-            echo "Sikertelen post.";
+            echo "Sikertelen post a TermekInfoAPI-val.";
         }
-        //return $termekList;
+        #return $termekList;
     }
 
 
@@ -83,16 +83,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Az űrlapról érkező adatok elérése
     $termekData = $_POST;
 
-
-
     // Feldolgozás és sikeres válasz küldése
     if ($termekData) {
-        echo "POST kérés fogadva! Adatok: ";
+        echo "POST kérés fogadva! 
+Küldött datok: ";
         var_dump($termekData); // Vagy print_r($termekData);
         $controller->postTermek($termekData);
     } else {
         echo "Sikertelen POST kérés!";
     }
+}
+
+
+//ez meg csak egy probalkozas
+if (isset($_GET['id'])) {
+    $termekId = $_GET['id'];
+    $termekData = $controller->getTermek($termekId);
+    
+    // Assuming $termekData is an array of data
+    header('Content-Type: application/json');
+    echo json_encode($termekData);
 }
 
 
@@ -117,35 +127,4 @@ $requestUri = $_SERVER['REQUEST_URI'];
     elseif ($requestUri == '/qr_kod_app/TermekInfoAPI/getTermekek') {
         $controller->getTermekek();
     }
-
-
-
-
-
-/*
-    function postTermek($termekData) {
-        # teszt adat
-        $termekData = [
-            'termek_nev' => 'nyomdafestek',
-            'termek_szarmazas' => 'Cégnév Kft',
-            'termek_erkezesi_datum' => '2023-11-27',
-            'termek_ewc_kod' => '08 03 12',
-            'termek_darabszam' => '10',
-            'termek_suly' => '5',
-            'termek_logisztikara_kuldve' => '0'
-        ];
-        $model = new TermekInfoAPIModel(); // Modell példányosítása
-        
-        $termekList = $model->postTermekModel($termekData); // A modell getTermekekModel függvényének meghívása
-
-        //var_dump($termekList);
-        if ($termekList == true)
-        {
-            echo "Sikeres post.";
-        } else {
-            echo "Sikertelen post.";
-        }
-        //return $termekList;
-    }
-    */
-    ?>
+?>

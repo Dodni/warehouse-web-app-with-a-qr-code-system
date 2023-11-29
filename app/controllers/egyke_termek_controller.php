@@ -19,20 +19,45 @@ class EgyketermekController {
             }
         } else {
             // URL, amire szeretnéd küldeni az adatot
-            $dataToSend = "jelentkezzen-be-elobb"; // Az adat, amit elküldesz
-            $url = "/qr_kod_app/login?data=" . urlencode($dataToSend);
+            $url = "/qr_kod_app/login";
 
             // Átirányítás a megadott URL-re
             header("Location: $url");
             exit;
         }
     }
-
-    
-
 }
 
-$controller = new EgyketermekController();
+$requestUri = $_SERVER['REQUEST_URI'];
+if (preg_match('/\/qr_kod_app\/egyke_termek\/(\d+)$/', $requestUri)) {
+    $matches = [];
+    preg_match('/(\d+)$/', $requestUri, $matches);
+    $szam = $matches[0]; //megkapjuk az id-t
 
-$controller->showEgykeTermekPage();
+    // GET request to TermekInfoAPI/getTermek
+    $url = BASE_URL . "TermekInfoAPI/getTermek/" . $szam;
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    
+    curl_close($ch);
+
+    // Távolítsuk el a felesleges szövegeket a JSON körül, hogy csak a tényleges JSON maradjon
+    $json_start = strpos($response, '['); // Keresés a JSON kezdetének helye alapján
+    $json_end = strrpos($response, ']'); // Keresés a JSON végének helye alapján
+
+    $json_data = substr($response, $json_start, $json_end - $json_start + 1); // JSON rész kivágása
+
+    $decoded_response = json_decode($json_data, true);
+
+    session_start();
+    $_SESSION['dataSenden'] = $decoded_response;
+    $controller = new EgyketermekController();
+    $controller->showEgykeTermekPage();
+} else {
+    $controller = new EgyketermekController();
+    $controller->showEgykeTermekPage();
+}
 ?>

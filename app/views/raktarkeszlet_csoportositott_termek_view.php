@@ -21,7 +21,7 @@
 
     <div class="container">
         <h1>Raktárkészlet</h1>
-        <h3>[csoportositott termek neve]</h3>
+        <h3><?php echo $termekAdatok['0']['termek_nev'] ?></h3>
         <button onclick="ellenorizEsKuldes()">Küldés a logisztikára</button>
 
         <div class="container">
@@ -50,20 +50,23 @@
                 <tbody>
                     <?php
                     $sorSzamlalo = 0;
+                    #var_dump($termekAdatok);
                     foreach ($termekAdatok as $termek) {
                         if ($sorSzamlalo < 25) {
                             echo "<tr>";
-
+                    
                             foreach ($termek as $key => $value) {
                                 if ($key === 'termek_logisztikara_kuldve') {
                                     echo "<td><a class='qr-link' href='#'>Letöltés</a></td>";
                                 } elseif ($key === 'termek_nev') {
-                                    echo "<td><a href='#'>$value</a></td>";
-                                } else {
+                                    // Az 'termek_id' kiolvasása a $termek tömbből
+                                    $termekId = $termek['termek_id'];
+                                    echo "<td><a href=" . BASE_URL . "egyke_termek/$termekId>$value</a></td>";
+                                } elseif ($key !== 'termek_kep_neve') { // Kép neve oszlopot kihagyjuk
                                     echo "<td>$value</td>";
                                 }
                             }
-
+                    
                             echo "<td><input type='checkbox'></td></tr>";
                             $sorSzamlalo++;
                         } else {
