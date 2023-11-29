@@ -20,12 +20,12 @@
     #var_dump($termekAdatok);
     $oszlopNevek = ['Termék teljes neve', 'EWC kód', 'Utolsó Dátum', 'Darabszám', 'Összes súly', 'Kiválasztás'];
     ?>
+    <div><h1>Raktárkészlet</h1></div>
     <div class="container">
-        <h1><?php echo $dataSend['title']; ?></h1>
         <div class="horizontal-container">
             <button onclick="exportSelected()">Excel letöltése</button>
             <input type="text" placeholder="Keresés">
-            <button>Új termék hozzáadása</button>
+            <input href="#" type="button" onclick="location.href='/qr_kod_app/raktarkeszlet_uj_termek_hozzaadasa';" value="Új termék hozzáadása">
         </div>
         <div class="container">
             <table border="1">
