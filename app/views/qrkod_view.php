@@ -7,27 +7,26 @@
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <script type="text/javascript" src="app/javascript/menu.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>QR kód</title>
 </head>
 <?php include 'header_view.php'; ?>
 <body>
+    <div><h1>QR kód</h1></div>
     <div class="container">
-        <h1>QR kód</h1>
-
         <label for="user-input">Enter QR code data: </label>
         <input type="text" id="user-input">
         <button id="btn">Generate QR code!</button>
         <div id="qrcode-container"></div>
         <a id="download-link" style="display: none;">Download QR code</a>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <script type="text/javascript">
     document.getElementById('btn').addEventListener('click', createQRCode);
 
     function createQRCode() {
-        const text = document.getElementById('user-input').value;
+        const text = '<?php echo $szoveg; ?>';
         const qrCodeContainer = document.getElementById("qrcode-container");
         qrCodeContainer.innerHTML = ''; // Clear previous QR code if any
 
