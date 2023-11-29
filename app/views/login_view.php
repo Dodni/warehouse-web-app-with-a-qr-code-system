@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <script type="text/javascript" src="app/javascript/menu.js"></script>
+    <script>
+    function showAlert() {alert("Kérlek, vedd fel a kapcsolatot az üzemeltető kollégákkal az elfelejtett jelszó miatt.");}</script>
     <title>Bejelentkezés</title>
 </head>
 <?php include 'header_view.php'; ?>
@@ -25,9 +27,11 @@
 
             <input type="submit" value="bejelentkezes">
             </form>
-            <br><br>
-            <a href="elfelejtett_jelszo.js">Elfelejtett jelszó</a>
-        </div>
+            <br>
+            <br>
+            <br>
+            <a href="#" onclick="showAlert()">Elfelejtett jelszó</a>
+      </div>
     </div>
 </body>
 <?php include 'footer_view.php'; ?>

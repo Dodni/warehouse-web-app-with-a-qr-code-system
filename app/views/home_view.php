@@ -11,8 +11,8 @@
 </head>
 <?php include 'header_view.php'; ?>
 <body>
+    <div><h1>Főoldal</h1></div>
     <div class="container">
-        <h1>Főoldal</h1>
         <div class="container">
             <img src="public/img/qrcode.png" alt="Secret" width="250" height="250">
         </div>

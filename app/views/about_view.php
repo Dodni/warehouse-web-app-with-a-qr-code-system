@@ -1,4 +1,4 @@
-<!-- home_view.php -->
+<!-- about_view.php -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,15 +7,14 @@
     <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <script type="text/javascript" src="app/javascript/menu.js"></script>
-    <title>Raktárkészlet - Új termék hozzáadása</title>
+    <title>Rólunk</title>
 </head>
 <?php include 'header_view.php'; ?>
 <body>
+    <div><h1>Rólunk</h1></div>
     <div class="container">
-        <h1>Raktárkészlet</h1>
-        <h3>Új termék hozzáadása</h3>
+        <div><p>Ez itt a Rólunk oldal, be lehet mutatni a web alkalmazást vagy a céget.</p></div>
     </div>
 </body>
 <?php include 'footer_view.php'; ?>
 </html>
-
