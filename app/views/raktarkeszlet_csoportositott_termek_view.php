@@ -57,7 +57,7 @@
                     
                             foreach ($termek as $key => $value) {
                                 if ($key === 'termek_logisztikara_kuldve') {
-                                    echo "<td><a class='qr-link' href='#'>Letöltés</a></td>";
+                                    echo "<td><a class='qr-link' href=" . BASE_URL . "egyke_termek/$termekId>Letöltés</a></td>";
                                 } elseif ($key === 'termek_nev') {
                                     // Az 'termek_id' kiolvasása a $termek tömbből
                                     $termekId = $termek['termek_id'];

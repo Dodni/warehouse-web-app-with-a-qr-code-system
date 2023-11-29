@@ -16,7 +16,7 @@
     <div class="container">
         <?php 
             session_start();
-            #var_dump($_SESSION['dataSenden']);
+            var_dump($_SESSION['dataSenden']);
             if ($_SESSION['dataSenden'] != null) {
                 foreach ($_SESSION['dataSenden']  as $item) {
                     echo "<div class='product'>";
@@ -35,9 +35,10 @@
     </div>
     <div id="qrcode-container"></div>
     <script type="text/javascript">
-        var termekId = <?php echo json_encode($_SESSION["termek_id"]); ?>;
+        var termekId = <?php echo json_encode($_SESSION['dataSenden']['0']["termek_id"]); ?>;
         new QRCode(document.getElementById("qrcode-container"), 'http://localhost/qr_kod_app/egyke_termek/' + termekId);
     </script>
+    <a href="#" class="qr-link">Letöltés</a>
     <?php $_SESSION['dataSenden']=null;?>
 </body>
 <?php include 'footer_view.php'; ?>
