@@ -21,22 +21,10 @@ class TermekInfoAPIController {
         return $termekList;
     }
     
-    function postTermek($termekData) {
-        # teszt adat
-        $termekData = [
-            'termek_nev' => 'nyomdafestek',
-            'termek_szarmazas' => 'Cégnév Kft',
-            'termek_erkezesi_datum' => '2023-11-27',
-            'termek_ewc_kod' => '08 03 12',
-            'termek_darabszam' => '10',
-            'termek_suly' => '5',
-            'termek_logisztikara_kuldve' => '0'
-        ];
+    function postTermek($termekData) { 
         $model = new TermekInfoAPIModel(); // Modell példányosítása
-        
         $termekList = $model->postTermekModel($termekData); // A modell getTermekekModel függvényének meghívása
-
-        //var_dump($termekList);
+        var_dump($termekList);
         if ($termekList == true)
         {
             echo "Sikeres post.";
@@ -45,7 +33,8 @@ class TermekInfoAPIController {
         }
         //return $termekList;
     }
-    
+
+
     function putTermek($termekData) {
         $model = new TermekInfoAPIModel(); // Modell példányosítása
         $termekData = [
@@ -87,27 +76,76 @@ class TermekInfoAPIController {
         #return $result;
     }
 }
-
-$requestUri = $_SERVER['REQUEST_URI'];
 $controller = new TermekInfoAPIController();
 
-if (preg_match('%/qr_kod_app/TermekInfoAPI/getTermek/(\d+)%', $requestUri, $matches)) {
-    $termekId = $matches[1];
-    $controller->getTermek($termekId);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Az űrlapról érkező adatok elérése
+    $termekData = $_POST;
+
+
+
+    // Feldolgozás és sikeres válasz küldése
+    if ($termekData) {
+        echo "POST kérés fogadva! Adatok: ";
+        var_dump($termekData); // Vagy print_r($termekData);
+        $controller->postTermek($termekData);
+    } else {
+        echo "Sikertelen POST kérés!";
+    }
 }
-elseif (preg_match('%/qr_kod_app/TermekInfoAPI/postTermek/(\d+)%', $requestUri, $matches)) {
-    $termekId = $matches[1];
-    $controller->postTermek($termekId);
-} 
-elseif (preg_match('%/qr_kod_app/TermekInfoAPI/putTermek/(\d+)%', $requestUri, $matches)) {
-    $termekId = $matches[1];
-    $controller->putTermek($termekId);
-} 
-elseif (preg_match('%/qr_kod_app/TermekInfoAPI/deleteTermek/(\d+)%', $requestUri, $matches)) {
-    $termekId = $matches[1];
-    $controller->deleteTermek($termekId);
-}
-elseif ($requestUri == '/qr_kod_app/TermekInfoAPI/getTermekek') {
-    $controller->getTermekek();
-}
-?>
+
+
+$requestUri = $_SERVER['REQUEST_URI'];
+
+    if (preg_match('%/qr_kod_app/TermekInfoAPI/getTermek/(\d+)%', $requestUri, $matches)) {
+        $termekId = $matches[1];
+        $controller->getTermek($termekId);
+    }
+    elseif (preg_match('%/qr_kod_app/TermekInfoAPI/postTermek/', $requestUri, $matches)) {
+        $termekId = $matches[1];
+        $controller->postTermek($termekId);
+    } 
+    elseif (preg_match('%/qr_kod_app/TermekInfoAPI/putTermek/(\d+)%', $requestUri, $matches)) {
+        $termekId = $matches[1];
+        $controller->putTermek($termekId);
+    } 
+    elseif (preg_match('%/qr_kod_app/TermekInfoAPI/deleteTermek/(\d+)%', $requestUri, $matches)) {
+        $termekId = $matches[1];
+        $controller->deleteTermek($termekId);
+    }
+    elseif ($requestUri == '/qr_kod_app/TermekInfoAPI/getTermekek') {
+        $controller->getTermekek();
+    }
+
+
+
+
+
+/*
+    function postTermek($termekData) {
+        # teszt adat
+        $termekData = [
+            'termek_nev' => 'nyomdafestek',
+            'termek_szarmazas' => 'Cégnév Kft',
+            'termek_erkezesi_datum' => '2023-11-27',
+            'termek_ewc_kod' => '08 03 12',
+            'termek_darabszam' => '10',
+            'termek_suly' => '5',
+            'termek_logisztikara_kuldve' => '0'
+        ];
+        $model = new TermekInfoAPIModel(); // Modell példányosítása
+        
+        $termekList = $model->postTermekModel($termekData); // A modell getTermekekModel függvényének meghívása
+
+        //var_dump($termekList);
+        if ($termekList == true)
+        {
+            echo "Sikeres post.";
+        } else {
+            echo "Sikertelen post.";
+        }
+        //return $termekList;
+    }
+    */
+    ?>
