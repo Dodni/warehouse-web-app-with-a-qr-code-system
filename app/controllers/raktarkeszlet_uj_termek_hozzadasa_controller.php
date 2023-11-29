@@ -4,8 +4,8 @@
 include_once 'app/controllers/TermekInfoAPI_controller.php';
 class RaktarkeszletUjTermekHozzaadasaController {
     public function showRaktarkeszletUjTermekHozzaadasaPage() {
-        $viewPath = 'app/views/raktarkeszlet_view.php';
-        
+        $viewPath = 'app/views/raktarkeszlet_uj_termek_hozzaadasa_view.php';
+        session_start();
         // Ellenőrizzük, hogy a 'data' paraméter be van-e állítva
         if ($_SESSION['loggedin'] == true) {
 
@@ -16,20 +16,17 @@ class RaktarkeszletUjTermekHozzaadasaController {
                 echo "A megadott nézetfájl nem található.";
             }
         } else {
-            // URL, amire szeretnéd küldeni az adatot
-            $dataToSend = "jelentkezzen-be-elobb"; // Az adat, amit elküldesz
-            $url = "/qr_kod_app/login?data=" . urlencode($dataToSend);
+            $url = "/qr_kod_app/login";
 
             // Átirányítás a megadott URL-re
             header("Location: $url");
             exit;
-            
         }
     }
 
 }
 
 // Példányosítjuk a HomeController osztályt
-$controller = new RaktarkeszletController();
-$controller->showRaktarkeszletPage();
+$controller = new RaktarkeszletUjTermekHozzaadasaController();
+$controller->showRaktarkeszletUjTermekHozzaadasaPage();
 ?>

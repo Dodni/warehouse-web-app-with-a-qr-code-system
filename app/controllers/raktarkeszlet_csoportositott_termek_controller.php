@@ -5,7 +5,7 @@ include_once 'app/controllers/TermekInfoAPI_controller.php';
 class RaktarkeszletCsoportositottTermekController {
     public function showThePage($data) {
 
-        $viewPath = 'app/views/raktarkeszletcsoportositotttermek_view.php';
+        $viewPath = 'app/views/raktarkeszlet_csoportositott_termek_view.php';
         session_start();
         $_SESSION["dataToSend"] = $data;
         #var_dump($_SESSION["dataToSend"]);
