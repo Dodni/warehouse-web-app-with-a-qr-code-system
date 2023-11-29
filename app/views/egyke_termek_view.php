@@ -16,7 +16,7 @@
     <div class="container">
         <?php 
             session_start();
-            var_dump($_SESSION['dataSenden']);
+            #var_dump($_SESSION['dataSenden']);
             if ($_SESSION['dataSenden'] != null) {
                 foreach ($_SESSION['dataSenden']  as $item) {
                     echo "<div class='product'>";
@@ -38,8 +38,41 @@
         var termekId = <?php echo json_encode($_SESSION['dataSenden']['0']["termek_id"]); ?>;
         new QRCode(document.getElementById("qrcode-container"), 'http://localhost/qr_kod_app/egyke_termek/' + termekId);
     </script>
-    <a href="#" class="qr-link">Letöltés</a>
+    <a href="<?php echo BASE_URL?>egyke_termek/<?php echo $_SESSION['dataSenden']['0']["termek_id"]?>" class="qr-link">Letöltés</a>
     <?php $_SESSION['dataSenden']=null;?>
 </body>
 <?php include 'footer_view.php'; ?>
 </html>
+
+<div class="container" style="display: none;>
+        <input type="text" id="user-input">
+        <button id="btn">Generate QR code!</button>
+        <div id="qrcode-container" style="display: none;"></div>
+        <a id="download-link" style="display: none;"></a>
+    </div>
+
+    <script type="text/javascript">
+        const qrLinks = document.querySelectorAll('.qr-link');
+        qrLinks.forEach(function(qrLink) {
+            qrLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Megakadályozza az alapértelmezett linkműködést
+
+                const link = event.target;
+                const qrText = link.getAttribute('href'); // Az "a" elem href attribútumának értéke
+
+                // QR kód letöltése
+                const canvas = document.querySelector("#qrcode-container canvas");
+                const dataUrl = canvas.toDataURL("image/png");
+
+                const downloadLink = document.createElement("a");
+                downloadLink.href = dataUrl;
+                downloadLink.download = "qr_code.png";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
+        });
+
+
+
+    </script>
