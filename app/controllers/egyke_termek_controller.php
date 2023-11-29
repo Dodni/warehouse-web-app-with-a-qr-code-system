@@ -5,7 +5,7 @@ class EgyketermekController {
     public function showEgykeTermekPage() {
         
         // Az elérési út a home_view.php fájlhoz
-        $viewPath = 'app/views/egyketermek_view.php';
+        $viewPath = 'app/views/egyke_termek_view.php';
         
         session_start();
         // Ellenőrizzük, hogy a 'data' paraméter be van-e állítva

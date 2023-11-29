@@ -14,10 +14,12 @@
 <body>
     <div class="container">
         <h1>Egyke Termék oldal</h1>
-    </div>
         <!-- ez kell -->
         <div id="qrcode-container"></div>
-<button id="download-btn">Download QR code</button>
+        <br>
+        <button id="download-btn">Download QR code</button>
+    </div>
+
 
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
