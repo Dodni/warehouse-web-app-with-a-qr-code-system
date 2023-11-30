@@ -13,7 +13,7 @@ class EgyketermekController {
 
             if (file_exists($viewPath)) {
                 // Betöltjük és megjelenítjük a nézetet
-                include $viewPath;
+                include_once $viewPath;
             } else {
                 echo "A megadott nézetfájl nem található.";
             }

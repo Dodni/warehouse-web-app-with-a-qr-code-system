@@ -14,26 +14,28 @@
 <body>
     <div><h1>Egyke termék oldal</h1></div>
     <div class="container">
-        <?php 
-            session_start();
-            #var_dump($_SESSION['dataSenden']);
-            if ($_SESSION['dataSenden'] != null) {
-                foreach ($_SESSION['dataSenden']  as $item) {
-                    echo "<div class='product'>";
-                    foreach ($item as $key => $value) {
-                        if ($key === "termek_logisztikara_kuldve" && $value === "0") {
-                            echo "<b>$key:</b> Nem<br>";
-                        } else {
-                            echo "<b>$key:</b> $value<br>";
+        <div>
+            <?php 
+                session_start();
+                #var_dump($_SESSION['dataSenden']);
+                if ($_SESSION['dataSenden'] != null) {
+                    foreach ($_SESSION['dataSenden']  as $item) {
+                        echo "<div class='product'>";
+                        foreach ($item as $key => $value) {
+                            if ($key === "termek_logisztikara_kuldve" && $value === "0") {
+                                echo "<b>$key:</b> Nem<br>";
+                            } else {
+                                echo "<b>$key:</b> $value<br>";
+                            }
                         }
+                        echo "</div><br>";
                     }
-                    echo "</div><br>";
+                    
                 }
-                
-            }
-        ?>
+            ?>
+        </div>
     </div>
-    <div id="qrcode-container"></div>
+    <div><div id="qrcode-container"></div></div>
     <script type="text/javascript">
         var termekId = <?php echo json_encode($_SESSION['dataSenden']['0']["termek_id"]); ?>;
         new QRCode(document.getElementById("qrcode-container"), 'http://localhost/qr_kod_app/egyke_termek/' + termekId);
