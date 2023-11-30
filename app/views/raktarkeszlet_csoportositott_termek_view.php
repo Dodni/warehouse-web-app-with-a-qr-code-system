@@ -20,9 +20,9 @@
     ?>
 
     <div class="container">
-        <h1>Raktárkészlet</h1>
-        <h3><?php echo $termekAdatok['0']['termek_nev'] ?></h3>
-        <button onclick="ellenorizEsKuldes()">Küldés a logisztikára</button>
+        <div><h1>Raktárkészlet</h1></div>
+        <div><h3><?php echo $termekAdatok['0']['termek_nev'] ?></h3></div>
+        <div><button onclick="ellenorizEsKuldes()">Küldés a logisztikára</button></div>
 
         <div class="container">
             <table border="1">
