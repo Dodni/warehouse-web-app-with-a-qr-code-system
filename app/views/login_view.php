@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <script type="text/javascript" src="app/javascript/menu.js"></script>
     <script>
@@ -25,7 +24,7 @@
             <br>
             <input type="password" id="password" name="password" placeholder="Jelszó"><br><br>
 
-            <input type="submit" value="bejelentkezes">
+            <input id="bejelentkezes" type="submit" value="bejelentkezes">
             </form>
             <br>
             <br>

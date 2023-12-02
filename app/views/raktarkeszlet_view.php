@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <script type="text/javascript" src="app/javascript/menu.js"></script>
     <script type="text/javascript" src="app/javascript/keresesTabla.js"></script>
@@ -23,9 +22,9 @@
     <div><h1>Raktárkészlet</h1></div>
     <div class="container">
         <div class="horizontal-container">
-            <button onclick="exportSelected()">Excel letöltése</button>
-            <input type="text" placeholder="Keresés">
-            <input href="#" type="button" onclick="location.href='/qr_kod_app/raktarkeszlet_uj_termek_hozzaadasa';" value="Új termék hozzáadása">
+            <button id="excel-letoltese" onclick="exportSelected()">Excel letöltése</button>
+            <input id="kereso" type="text" placeholder="Keresés">
+            <input id="uj-termek-hozzaadasa" href="#" type="button" onclick="location.href='/qr_kod_app/raktarkeszlet_uj_termek_hozzaadasa';" value="Új termék hozzáadása">
         </div>
         <div class="container">
             <table border="1">
@@ -43,7 +42,7 @@
                             <tr>
                                 <?php foreach ($termek as $key => $value) : ?>
                                     <?php if ($key === 'termek_nev') : ?>
-                                        <td><a href="/qr_kod_app/raktarkeszlet_csoportositott_termek?ewc_kod=<?= $termek['termek_ewc_kod'] ?>"><?= $value ?></a></td>
+                                        <td><a id="csoportositott-termek" href="/qr_kod_app/raktarkeszlet_csoportositott_termek?ewc_kod=<?= $termek['termek_ewc_kod'] ?>"><?= $value ?></a></td>
                                     <?php else : ?>
                                         <td><?= $value ?></td>
                                     <?php endif; ?>

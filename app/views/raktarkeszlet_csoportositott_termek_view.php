@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="public/img/favicon.png">
     <link rel="stylesheet" href="public/css/style.css">
     <script type="text/javascript" src="app/javascript/menu.js"></script>
     <script type="text/javascript" src="app/javascript/ellenorizEsKuld.js"></script>
@@ -61,7 +60,7 @@
                                 } elseif ($key === 'termek_nev') {
                                     // Az 'termek_id' kiolvasása a $termek tömbből
                                     $termekId = $termek['termek_id'];
-                                    echo "<td><a href=" . BASE_URL . "egyke_termek/$termekId>$value</a></td>";
+                                    echo "<td><a id='egyke_termek' href=" . BASE_URL . "egyke_termek/$termekId>$value</a></td>";
                                 } elseif ($key !== 'termek_kep_neve') { // Kép neve oszlopot kihagyjuk
                                     echo "<td>$value</td>";
                                 }
