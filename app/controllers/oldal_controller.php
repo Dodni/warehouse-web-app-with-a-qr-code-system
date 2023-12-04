@@ -13,7 +13,7 @@ class OldalController {
         // Ellenőrizzük, hogy a fájl létezik-e
         if (file_exists($viewPath)) {
             // Betöltjük és megjelenítjük a nézetet
-            include $viewPath;
+            include_once $viewPath;
         } else {
             echo "A megadott nézetfájl nem található.";
         }
@@ -46,7 +46,7 @@ class OldalController {
         // Navigációs menü összeállítása
         $navMenu = '<nav class="nav-menu"><ul>';
         foreach ($menuItems as $item) {
-            $navMenu .= '<li><a href="' . $item['oldal_url'] . '">' . $item['oldal_nev'] . '</a></li>';
+            $navMenu .= '<li><a href="' . BASE_URL . $item['oldal_url'] . '">' . $item['oldal_nev'] . '</a></li>';
         }
         $navMenu .= '</ul></nav>';
     

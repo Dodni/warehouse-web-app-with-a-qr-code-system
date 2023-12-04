@@ -10,8 +10,9 @@
 </head>
 <?php include 'header_view.php'; ?>
 <body>
+    <div><h1>Admin</h1></div>
     <div class="container">
-        <h1>Admin</h1>
+        
     </div>
 </body>
 <?php include 'footer_view.php'; ?>
