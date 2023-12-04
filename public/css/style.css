@@ -122,7 +122,7 @@ footer {
 
 /* Egyéb stílusok és kiegészítések */
 .container {
-    min-height: calc(80vh - 10px); /* Az új kalkuláció, ahol a footer-nek 20px paddingje van és a footer maga 80px magas */
+    min-height: calc(80vh - 80px); /* Az új kalkuláció, ahol a footer-nek 20px paddingje van és a footer maga 80px magas */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,4 +166,16 @@ th, td {
         display: inline-block;
         margin-right: 20px;
     }
+}
+
+.product {
+    margin: 0;
+    border: 1px solid black; /* csak példa, a keret hozzáadása */
+    padding: 10px; /* csak példa, a belső tér hozzáadása */
+}
+
+.product p {
+    margin: 0%;
+    display: inline;
+    float: right;
 }

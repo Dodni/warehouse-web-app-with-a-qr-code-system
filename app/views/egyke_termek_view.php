@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="public/css/style.css">
-    <script type="text/javascript" src="app/javascript/menu.js"></script>
+    <link rel="stylesheet" href="<?php echo BASE_URL ?>public/css/style.css">
+    <script type="text/javascript" src="<?php echo BASE_URL ?>app/javascript/menu.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Egyke Termék oldal</title>
 </head>
@@ -13,18 +13,19 @@
 <body>
     <div><h1>Egyke termék oldal</h1></div>
     <div class="container">
-        <div>
+        <div >
             <?php 
                 session_start();
                 #var_dump($_SESSION['dataSenden']);
                 if ($_SESSION['dataSenden'] != null) {
-                    foreach ($_SESSION['dataSenden']  as $item) {
+                    foreach ($_SESSION['dataSenden'] as $item) {
                         echo "<div class='product'>";
                         foreach ($item as $key => $value) {
+                            $formatted_key = str_replace('_', ' ', $key); // Szóközök beszúrása az _ jelek helyett
                             if ($key === "termek_logisztikara_kuldve" && $value === "0") {
-                                echo "<b>$key:</b> Nem<br>";
+                                echo "<b>$formatted_key:</b><p>Nem</p><br>";
                             } else {
-                                echo "<b>$key:</b> $value<br>";
+                                echo "<b>$formatted_key:</b><p>$value</p><br>";
                             }
                         }
                     }
@@ -35,19 +36,21 @@
                 }
             ?>
         </div>
+        <div id="qrcode-container"></div>
+        <br>
+        <a href="<?php echo BASE_URL?>egyke_termek/<?php echo $_SESSION['dataSenden']['0']["termek_id"]?>" class="qr-link">Letöltés</a>
+        <br>
     </div>
-    <div><div id="qrcode-container"></div></div>
     <script type="text/javascript">
         var termekId = <?php echo json_encode($_SESSION['dataSenden']['0']["termek_id"]); ?>;
         new QRCode(document.getElementById("qrcode-container"), 'http://localhost/qr_kod_app/egyke_termek/' + termekId);
     </script>
-    <a href="<?php echo BASE_URL?>egyke_termek/<?php echo $_SESSION['dataSenden']['0']["termek_id"]?>" class="qr-link">Letöltés</a>
     <?php $_SESSION['dataSenden']=null;?>
 </body>
 <?php include 'footer_view.php'; ?>
 </html>
 
-<div class="container" style="display: none;>
+    <div class="container" style="display: none;>
         <input type="text" id="user-input">
         <button id="btn">Generate QR code!</button>
         <div id="qrcode-container" style="display: none;"></div>
