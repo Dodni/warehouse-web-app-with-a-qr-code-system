@@ -1,4 +1,8 @@
 <?php
+// routes beállítása
+// xampp-ban '/projekt-mappa-neve/url-cim'
+// szerveren '/url-cim'
+
 // Könyvtár az útvonalakhoz és vezérlőkhöz
 $routes = [
     '/qr_kod_app/' => 'home_controller.php',

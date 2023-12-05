@@ -9,6 +9,6 @@ define('DB_NAME', 'qr_kod_app');
 
 // Alap(gyökér) URL beállítása
 define('BASE_URL', 'http://localhost/qr_kod_app/');
-// További konfigurációs beállítások...
 
+// További konfigurációs beállítások...
 ?>
