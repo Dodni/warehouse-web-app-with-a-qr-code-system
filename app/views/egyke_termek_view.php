@@ -23,15 +23,15 @@
                         foreach ($item as $key => $value) {
                             $formatted_key = str_replace('_', ' ', $key); // Szóközök beszúrása az _ jelek helyett
                             if ($key === "termek_logisztikara_kuldve" && $value === "0") {
-                                echo "<b>$formatted_key:</b><p>Nem</p><br>";
+                                echo "<b>$formatted_key:</b><p class='product-p'>Nem</p><br>";
                             } else {
-                                echo "<b>$formatted_key:</b><p>$value</p><br>";
+                                echo "<b>$formatted_key:</b><p class='product-p'>$value</p><br>";
                             }
                         }
                     }
                     echo "<br><br><br>";
-                    echo "<b>Szállítási dátum:</b> Nem elérhető<br>";
-                    echo "<b>Szállítási cím:</b> Nem elérhető";
+                    echo "<b>Szállítási dátum:</b><p class='product-p'>Nem elérhető</p><br>";
+                    echo "<b>Szállítási cím:</b><p class='product-p'>Nem elérhető</p>";
                     echo "</div><br>";
                 }
             ?>
