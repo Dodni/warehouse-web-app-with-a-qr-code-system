@@ -50,7 +50,7 @@
 <?php include 'footer_view.php'; ?>
 </html>
 
-    <div class="container" style="display: none;>
+    <div class="container" style="display: none;">
         <input type="text" id="user-input">
         <button id="btn">Generate QR code!</button>
         <div id="qrcode-container" style="display: none;"></div>
