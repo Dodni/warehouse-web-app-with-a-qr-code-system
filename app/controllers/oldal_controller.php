@@ -35,11 +35,11 @@ class OldalController {
                 $menuItems[] = $menuItem; // Ha a felhasználó jogosultsága 1, csak az 1-es jogú menüpontok hozzáadása
             }
         }
-    
+        
         // Ha be van jelentkezve a felhasználó, szűrd ki a "Bejelentkezés" menüpontot
         if ($_SESSION['loggedin'] == true) {
             $menuItems = array_filter($menuItems, function ($item) {
-                return $item['oldal_nev'] !== 'Bejelentkezés';
+                return $item['oldal_url'] !== 'login';
             });
         }
         

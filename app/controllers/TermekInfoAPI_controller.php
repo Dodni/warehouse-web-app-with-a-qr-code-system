@@ -124,7 +124,7 @@ $requestUri = $_SERVER['REQUEST_URI'];
         $termekId = $matches[1];
         $controller->deleteTermek($termekId);
     }
-    elseif ($requestUri == '/qr_kod_app/TermekInfoAPI/getTermekek') {
+    elseif ($requestUri == '%/qr_kod_app/TermekInfoAPI/getTermekek') {
         $controller->getTermekek();
     }
 ?>

@@ -15,9 +15,6 @@ class AdminController {
             echo "A megadott nézetfájl nem található.";
         }
     }
-
-    
-
 }
 
 // Példányosítjuk a HomeController osztályt

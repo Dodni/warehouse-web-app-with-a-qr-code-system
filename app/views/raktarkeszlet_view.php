@@ -24,7 +24,7 @@
         <div class="horizontal-container">
             <button id="excel-letoltese" onclick="exportSelected()">Excel letöltése</button>
             <input id="kereso" type="text" placeholder="Keresés">
-            <input id="uj-termek-hozzaadasa" href="#" type="button" onclick="location.href='/qr_kod_app/raktarkeszlet_uj_termek_hozzaadasa';" value="Új termék hozzáadása">
+            <input id="uj-termek-hozzaadasa" href="#" type="button" onclick="location.href='raktarkeszlet_uj_termek_hozzaadasa';" value="Új termék hozzáadása">
         </div>
         <div class="container">
             <table border="1">
@@ -42,7 +42,7 @@
                             <tr>
                                 <?php foreach ($termek as $key => $value) : ?>
                                     <?php if ($key === 'termek_nev') : ?>
-                                        <td><a id="csoportositott-termek" href="/qr_kod_app/raktarkeszlet_csoportositott_termek?ewc_kod=<?= $termek['termek_ewc_kod'] ?>"><?= $value ?></a></td>
+                                        <td><a id="csoportositott-termek" href="raktarkeszlet_csoportositott_termek?ewc_kod=<?= $termek['termek_ewc_kod'] ?>"><?= $value ?></a></td>
                                     <?php else : ?>
                                         <td><?= $value ?></td>
                                     <?php endif; ?>
