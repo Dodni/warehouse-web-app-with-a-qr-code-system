@@ -3,8 +3,8 @@
 # Install:
 
  1. IMPORTANT! Change the main directory to "qr_kod_app" or set the dir name in the .htaccess second line: RewriteBase /qr_kod_app/  <- HERE
- 2. Change the .htaccess.txt format to the .htaccess
- 3. Set your database in the system/config.php file
+ 2. IMPORTANT! Change the .htaccess.txt format to the .htaccess
+ 3. IMPORTANT! Set your database in the system/config.php file
  4. Set your base url to yours in the system/config.php file
 
  # Directory structure:
